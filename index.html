@@ -1,0 +1,732 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#a83267">
+  <meta name="description" content="فروش محصولات آرایشی، مراقبت پوست و مو MND Beauty">
+  <title>MND Beauty | فروشگاه زیبایی و مراقبت پوست</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink: #a83267;
+      --pink-dark: #762048;
+      --pink-light: #fff0f6;
+      --cream: #fffaf7;
+      --text: #34252d;
+      --muted: #776770;
+      --white: #ffffff;
+      --border: #f0dce5;
+      --shadow: 0 10px 28px #54213a12;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    button, .btn {
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .topbar {
+      padding: 9px 16px;
+      text-align: center;
+      background: var(--pink-dark);
+      color: white;
+      font-size: 13px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #fffaf7f2;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      padding: 13px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--pink);
+      line-height: 1.4;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .navlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 17px;
+      font-size: 14px;
+    }
+
+    .navlinks a:hover { color: var(--pink); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 10px 16px;
+      border-radius: 13px;
+      border: 1px solid var(--pink);
+      background: var(--pink);
+      color: white;
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      background: var(--pink-dark);
+      border-color: var(--pink-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: white;
+      color: var(--pink);
+    }
+
+    .btn-outline:hover { color: white; }
+
+    .hero {
+      max-width: 1180px;
+      margin: 28px auto;
+      padding: 50px 32px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 10% 10%, #ffffffb8, transparent 30%),
+        linear-gradient(125deg, #f6c6da, #fff0e9 65%, #f8d9e7);
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      align-items: center;
+      gap: 25px;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--pink-dark);
+      background: #ffffffb8;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.45;
+      margin: 14px 0;
+    }
+
+    .hero p { color: #624653; max-width: 580px; }
+
+    .hero-art {
+      text-align: center;
+      font-size: clamp(90px, 15vw, 160px);
+      filter: drop-shadow(0 15px 15px #70264a20);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    .section-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .filter {
+      padding: 8px 14px;
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 22px;
+    }
+
+    .filter.active, .filter:hover {
+      background: var(--pink);
+      color: white;
+      border-color: var(--pink);
+    }
+
+    .search {
+      width: 100%;
+      max-width: 330px;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      outline: none;
+      background: white;
+    }
+
+    .search:focus { border-color: var(--pink); }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-art {
+      min-height: 155px;
+      display: grid;
+      place-items: center;
+      font-size: 66px;
+      background: linear-gradient(140deg, #fff0f6, #fbe2e9);
+    }
+
+    .card-body {
+      padding: 17px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    .tag {
+      align-self: start;
+      display: inline-block;
+      border-radius: 20px;
+      padding: 3px 10px;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .card h3 {
+      margin: 10px 0 6px;
+      font-size: 17px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 16px;
+      flex: 1;
+    }
+
+    .price {
+      color: var(--pink-dark);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .card-actions .btn {
+      flex: 1;
+      padding: 9px 7px;
+      font-size: 13px;
+    }
+
+    .card-actions .btn-outline { flex: .8; }
+
+    .empty {
+      display: none;
+      padding: 25px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .contact-panel {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .socials a { min-width: 130px; }
+
+    .socials .eitaa { background: #168bd2; border-color: #168bd2; }
+    .socials .telegram { background: #229ed9; border-color: #229ed9; }
+    .socials .whatsapp { background: #168d62; border-color: #168d62; }
+
+    footer {
+      text-align: center;
+      padding: 25px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    .notice {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding: 30px 22px; }
+      .hero-art { font-size: 90px; }
+      .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .navlinks { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .products { grid-template-columns: 1fr; }
+      .section-head { align-items: stretch; }
+      .search { max-width: none; }
+      .hero { margin: 16px 12px; }
+      .section { padding: 0 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    برای اطلاع از قیمت روز و موجودی محصولات، با ما تماس بگیرید 💗
+  </div>
+
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#home">
+        MND Beauty 💄
+        <small>Beauty & Skincare Products</small>
+      </a>
+
+      <div class="navlinks">
+        <a href="#home">صفحه اصلی</a>
+        <a href="#products">محصولات</a>
+        <a href="#contact">تماس با ما</a>
+      </div>
+
+      <a class="btn" href="tel:+989130147902">📞 تماس برای خرید</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <span class="eyebrow">زیبایی، مراقبت و اعتماد به نفس</span>
+        <h1>مراقبت از پوست و مو، با انتخابی از MND</h1>
+        <p>
+          محصولات آرایشی و مراقبتی MND و محصولات منتخب مراقبت پوست و مو.
+          برای اطلاع از قیمت و موجودی، مستقیماً با فروشگاه در ارتباط باشید.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#products">مشاهده محصولات</a>
+          <a class="btn btn-outline"
+             href="https://eitaa.com/MND_beauty_and_care_products"
+             target="_blank" rel="noopener">مشاهده کانال ایتا</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">🧴💋</div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <div>
+          <h2>محصولات فروشگاه</h2>
+          <p>برای استعلام قیمت و سفارش، روی دکمه محصول بزنید.</p>
+        </div>
+        <input
+          class="search"
+          id="search"
+          type="search"
+          placeholder="🔎 جست‌وجوی محصول..."
+          aria-label="جست‌وجوی محصولات">
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter active" data-category="all">همه محصولات</button>
+        <button class="filter" data-category="makeup">آرایشی</button>
+        <button class="filter" data-category="skin">مراقبت پوست</button>
+        <button class="filter" data-category="hair">مراقبت مو</button>
+        <button class="filter" data-category="other">سایر محصولات</button>
+      </div>
+
+      <div class="products" id="productsGrid"></div>
+      <div class="empty" id="empty">محصولی با این مشخصات پیدا نشد.</div>
+
+      <p class="notice">
+        توجه: قیمت‌های عددی در این صفحه درج نشده‌اند، چون مبلغ قطعی محصولات
+        از متن قابل‌مشاهده کانال قابل تأیید نبود. برای دریافت قیمت به‌روز تماس بگیرید.
+      </p>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="contact-panel">
+        <div style="font-size:45px">💌</div>
+        <h2>ارتباط با MND Beauty</h2>
+        <p>برای سفارش، اطلاع از قیمت روز و بررسی موجودی محصولات با ما در تماس باشید.</p>
+
+        <a class="btn" href="tel:+989130147902">
+          📞 تماس: 09130147902
+        </a>
+
+        <div class="socials">
+          <a class="btn eitaa"
+             href="https://eitaa.com/MND_beauty_and_care_products"
+             target="_blank" rel="noopener">ایتا</a>
+
+          <a class="btn whatsapp"
+             href="https://wa.me/989130147902"
+             target="_blank" rel="noopener">WhatsApp</a>
+
+          <a class="btn telegram"
+             href="https://t.me/+989130147902"
+             target="_blank" rel="noopener">Telegram</a>
+        </div>
+
+        <p class="notice">
+          لینک تلگرام بر اساس شماره تنظیم شده است؛ باز شدن آن به تنظیمات حساب تلگرام بستگی دارد.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> MND Beauty and Skincare Products 💄🧴
+    <br>
+    طراحی‌شده برای معرفی محصولات و ارتباط مستقیم با فروشگاه
+  </footer>
+
+  <script>
+    // محصولات بر اساس موارد معرفی‌شده در کانال ایتا
+    // قیمت‌ها عمداً ساختگی نیستند و از طریق تماس استعلام می‌شوند.
+
+    const PHONE = "+989130147902";
+    const EITAA = "https://eitaa.com/MND_beauty_and_care_products";
+
+    const products = [
+      {
+        id: 1,
+        name: "تینت لب MND",
+        category: "makeup",
+        emoji: "💋",
+        description: "تینت لب MND با ترکیباتی از موم زنبور عسل، روغن شی باتر و روغن کرچک هیدروژنه.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 2,
+        name: "کرم BB",
+        category: "makeup",
+        emoji: "🧴",
+        description: "کرم BB در حجم ۶۰ میل؛ برای اطلاع از مدل مناسب و قیمت تماس بگیرید.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 3,
+        name: "کرم CC",
+        category: "makeup",
+        emoji: "✨",
+        description: "کرم CC در حجم ۶۰ میل؛ قیمت آن ممکن است با مدل BB متفاوت باشد.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 4,
+        name: "کرم ضد لک MND",
+        category: "skin",
+        emoji: "🌸",
+        description: "محصول مراقبت پوست MND برای رسیدگی به لک‌های پوستی.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 5,
+        name: "ماسک رسی روشن‌کننده",
+        category: "skin",
+        emoji: "🧖🏻‍♀️",
+        description: "از محصولات معرفی‌شده برای روتین پاکسازی پوست.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 6,
+        name: "ماسک کاهش چربی پوست",
+        category: "skin",
+        emoji: "🫧",
+        description: "ماسک مراقبتی پوست؛ درباره نوع پوست مناسب و روش مصرف سؤال کنید.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 7,
+        name: "اسکراب روشن‌کننده",
+        category: "skin",
+        emoji: "🌷",
+        description: "اسکراب صورت از محصولات معرفی‌شده در کانال فروشگاه.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 8,
+        name: "اسکراب کاهش چربی",
+        category: "skin",
+        emoji: "🧴",
+        description: "محصول اسکراب مراقبت پوست؛ قیمت و موجودی با تماس تأیید می‌شود.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 9,
+        name: "تونیک یا سرم تقویت مو",
+        category: "hair",
+        emoji: "💆🏻‍♀️",
+        description: "محصول مراقبت از مو معرفی‌شده در کانال MND.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 10,
+        name: "ماسک مو آبکشی",
+        category: "hair",
+        emoji: "🧖🏻",
+        description: "ماسک مو با روش مصرف آبکشی؛ جزئیات مدل و قیمت را استعلام کنید.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 11,
+        name: "ماسک مو بدون آبکشی",
+        category: "hair",
+        emoji: "💇🏻‍♀️",
+        description: "محصول مراقبت مو بدون نیاز به آبکشی طبق معرفی کانال.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 12,
+        name: "پودر کلاژن الن بیوتی",
+        category: "other",
+        emoji: "🫙",
+        description: "پودر کلاژن الن بیوتی، بسته ۳۰ ساشه؛ اطلاعات دقیق محصول را پیش از مصرف بررسی کنید.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 13,
+        name: "پودر ماش فیت موز الن بیوتی",
+        category: "other",
+        emoji: "🥤",
+        description: "محصول پودری معرفی‌شده در کانال؛ برای اطلاعات ترکیبات و قیمت تماس بگیرید.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 14,
+        name: "محصول کاهش تعریق بانوان",
+        category: "other",
+        emoji: "🌼",
+        description: "محصول مرتبط با کنترل تعریق بانوان طبق معرفی کانال.",
+        price: "استعلام قیمت"
+      },
+      {
+        id: 15,
+        name: "محصول کاهش تعریق آقایان",
+        category: "other",
+        emoji: "🌿",
+        description: "محصول مرتبط با کنترل تعریق آقایان طبق معرفی کانال.",
+        price: "استعلام قیمت"
+      }
+    ];
+
+    let activeCategory = "all";
+
+    const grid = document.getElementById("productsGrid");
+    const searchInput = document.getElementById("search");
+    const empty = document.getElementById("empty");
+
+    function orderProduct(product) {
+      const message = "سلام، درباره قیمت و موجودی محصول «" +
+        product.name +
+        "» از فروشگاه MND سؤال دارم.";
+
+      // ابتدا شماره‌گیر را باز می‌کند.
+      // پیام از قبل کپی می‌شود تا در صورت نیاز ارسال شود.
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(message).catch(() => {});
+        }
+      } catch (e) {}
+
+      window.location.href = "tel:" + PHONE;
+    }
+
+    function showProductInEitaa(product) {
+      // کانال رسمی فروشگاه را باز می‌کند.
+      // جست‌وجوی مستقیم محصول در ایتا تضمین‌شده نیست.
+      window.open(EITAA, "_blank", "noopener,noreferrer");
+    }
+
+    function renderProducts() {
+      const query = searchInput.value.trim().toLowerCase();
+
+      const filtered = products.filter(product => {
+        const matchesCategory =
+          activeCategory === "all" ||
+          product.category === activeCategory;
+
+        const searchable =
+          (product.name + " " + product.description).toLowerCase();
+
+        return matchesCategory && searchable.includes(query);
+      });
+
+      grid.innerHTML = filtered.map(product => `
+        <article class="card">
+          <div class="product-art" aria-hidden="true">${product.emoji}</div>
+          <div class="card-body">
+            <span class="tag">${categoryLabel(product.category)}</span>
+            <h3>${escapeHTML(product.name)}</h3>
+            <p>${escapeHTML(product.description)}</p>
+            <div class="price">${product.price}</div>
+            <div class="card-actions">
+              <button class="btn" data-order="${product.id}">
+                📞 استعلام و خرید
+              </button>
+              <button class="btn btn-outline" data-eitaa="${product.id}">
+                ایتا
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      empty.style.display = filtered.length ? "none" : "block";
+    }
+
+    function categoryLabel(category) {
+      const labels = {
+        makeup: "آرایشی",
+        skin: "مراقبت پوست",
+        hair: "مراقبت مو",
+        other: "سایر محصولات"
+      };
+
+      return labels[category] || "محصولات";
+    }
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      })[char]);
+    }
+
+    document.getElementById("filters").addEventListener("click", event => {
+      const button = event.target.closest("[data-category]");
+      if (!button) return;
+
+      activeCategory = button.dataset.category;
+
+      document.querySelectorAll(".filter").forEach(filter => {
+        filter.classList.toggle("active", filter === button);
+      });
+
+      renderProducts();
+    });
+
+    grid.addEventListener("click", event => {
+      const orderButton = event.target.closest("[data-order]");
+      const eitaaButton = event.target.closest("[data-eitaa]");
+
+      if (orderButton) {
+        const product = products.find(
+          item => item.id === Number(orderButton.dataset.order)
+        );
+        if (product) orderProduct(product);
+      }
+
+      if (eitaaButton) {
+        const product = products.find(
+          item => item.id === Number(eitaaButton.dataset.eitaa)
+        );
+        if (product) showProductInEitaa(product);
+      }
+    });
+
+    searchInput.addEventListener("input", renderProducts);
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    renderProducts();
+  </script>
+</body>
+  </html>
+    
