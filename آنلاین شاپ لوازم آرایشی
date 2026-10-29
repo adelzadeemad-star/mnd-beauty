@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#a83267">
+<meta name="description" content="فروشگاه MND Beauty، محصولات آرایشی و مراقبت پوست و مو">
+<title>MND Beauty | فروشگاه زیبایی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#fff9fb;--surface:#fff;--text:#33232d;--muted:#786874;
+  --brand:#a83267;--brand2:#762048;--soft:#fff0f6;--line:#f0dce5;
+  --shadow:0 10px 30px #55213b12;
+}
+[data-theme="dark"]{
+  --bg:#191218;--surface:#261a23;--text:#fff0f6;--muted:#c7aebc;
+  --brand:#ef7eb0;--brand2:#c8548b;--soft:#392331;--line:#4c3342;
+  --shadow:0 10px 30px #0003;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.8;
+  transition:background .25s,color .25s
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
+  outline:3px solid #df7ca8;outline-offset:3px
+}
+.container{width:min(1160px,calc(100% - 30px));margin:auto}
+.announcement{background:var(--brand2);color:#fff;text-align:center;padding:7px;font-size:12px}
+header{
+  position:sticky;top:0;z-index:50;background:var(--bg);
+  border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 94%,transparent);
+  backdrop-filter:blur(12px)
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:15px;min-height:72px}
+.logo{font-weight:800;font-size:19px;color:var(--brand);line-height:1.4}
+.logo small{display:block;font-size:10px;color:var(--muted);font-weight:500}
+.navlinks{display:flex;gap:17px;font-size:13px}
+.navlinks a:hover{color:var(--brand)}
+.nav-actions{display:flex;gap:7px;align-items:center}
+.btn,.icon-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  border:1px solid var(--brand);border-radius:12px;padding:10px 14px;
+  background:var(--brand);color:white;font-weight:700;transition:.2s
+}
+.btn:hover{background:var(--brand2);transform:translateY(-2px)}
+.btn.secondary{background:var(--surface);color:var(--brand)}
+.btn.soft{background:var(--soft);color:var(--brand);border-color:var(--line)}
+.btn.full{width:100%}
+.icon-btn{width:42px;height:42px;padding:0;background:var(--surface);color:var(--text);border-color:var(--line);position:relative}
+.count{position:absolute;top:-6px;right:-6px;background:var(--brand);color:white;border-radius:50%;font-size:10px;min-width:18px;height:18px;display:grid;place-items:center}
+.hero{
+  margin:24px auto 0;padding:clamp(25px,5vw,55px);border-radius:28px;
+  background:radial-gradient(circle at 10% 10%,#fff9,transparent 30%),
+  linear-gradient(125deg,#f2bfd5,#fff0e7 60%,#f7dce9);
+  color:#47283a;display:grid;grid-template-columns:1.2fr .8fr;
+  align-items:center;gap:20px;overflow:hidden
+}
+.pill{display:inline-block;background:#ffffffbd;color:#762048;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:700}
+.hero h1{font-size:clamp(29px,4.5vw,48px);line-height:1.45;margin:15px 0}
+.hero p{max-width:570px;color:#694657}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.hero-art{min-height:230px;display:grid;place-items:center;position:relative}
+.hero-bottle{font-size:clamp(100px,14vw,160px);filter:drop-shadow(0 15px 15px #70264a25);animation:bob 4s ease-in-out infinite}
+.orbit{position:absolute;font-size:34px;animation:orbit 7s ease-in-out infinite}
+.o1{top:10%;left:15%}.o2{bottom:12%;right:12%;animation-delay:-2s}.o3{top:15%;right:12%;animation-delay:-4s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+@keyframes orbit{0%,100%{transform:translateY(0) rotate(-10deg)}50%{transform:translateY(-16px) rotate(12deg)}}
+.section{padding-top:48px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.section-head h2{margin:0;font-size:26px}
+.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.category{
+  border:1px solid var(--line);background:var(--surface);color:var(--text);
+  border-radius:17px;padding:16px;text-align:center;transition:.2s
+}
+.category:hover{transform:translateY(-3px);border-color:var(--brand);box-shadow:var(--shadow)}
+.category span{display:block;font-size:33px}
+.category strong{font-size:13px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+.search,select{
+  border:1px solid var(--line);border-radius:12px;padding:11px 13px;
+  background:var(--surface);color:var(--text)
+}
+.search{flex:1;min-width:190px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.filter{border:1px solid var(--line);border-radius:99px;padding:7px 13px;background:var(--surface);color:var(--text);font-size:12px}
+.filter.active,.filter:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:.2s}
+.card:hover{transform:translateY(-4px)}
+.product-visual{
+  height:165px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--soft),#f7dce9);position:relative;overflow:hidden
+}
+.product-visual .big{font-size:68px;filter:drop-shadow(0 8px 8px #65234418);animation:bob 5s ease-in-out infinite}
+.badge{position:absolute;top:10px;right:10px;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:3px 9px;font-size:10px;color:var(--brand)}
+.favorite{position:absolute;top:9px;left:9px;width:35px;height:35px;border:0;border-radius:50%;background:var(--surface);color:var(--brand);font-size:20px}
+.favorite.active{background:#ffe0eb}
+.card-body{padding:14px;display:flex;flex:1;flex-direction:column}
+.category-label{font-size:11px;color:var(--brand);font-weight:700}
+.card h3{font-size:15px;margin:5px 0;line-height:1.6}
+.desc{font-size:12px;color:var(--muted);margin:0 0 12px;flex:1}
+.price-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}
+.price{font-size:13px;color:var(--brand);font-weight:800}
+.stock{font-size:10px;color:var(--muted)}
+.card-actions{display:flex;gap:7px}
+.card-actions .btn{flex:1;font-size:12px;padding:9px 6px}
+.empty{display:none;text-align:center;color:var(--muted);padding:25px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature{padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:18px}
+.feature .emoji{font-size:28px}
+.feature h3{font-size:15px;margin:7px 0 4px}
+.feature p{font-size:12px;color:var(--muted);margin:0}
+.contact-box{background:var(--soft);border:1px solid var(--line);border-radius:24px;padding:30px;text-align:center}
+.contact-box h2{margin:0}
+.contact-box p{font-size:13px;color:var(--muted)}
+.socials{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.faq{max-width:850px;margin:auto}
+details{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:13px 16px;margin:9px 0}
+summary{cursor:pointer;font-weight:700;font-size:14px}
+details p{font-size:13px;color:var(--muted);margin-bottom:0}
+.note{font-size:11px;color:var(--muted);margin-top:12px}
+footer{margin-top:50px;padding:25px 0 90px;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+.footer-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:10px}
+.floating{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:4}
+.float-icon{position:absolute;bottom:-80px;left:var(--x);font-size:var(--s);opacity:0;animation:floatUp var(--t) linear var(--d) infinite}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.4}80%{opacity:.35}100%{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+.drawer-backdrop,.modal-backdrop{position:fixed;inset:0;background:#16081080;z-index:100;opacity:0;pointer-events:none;transition:.25s}
+.drawer-backdrop.open,.modal-backdrop.open{opacity:1;pointer-events:auto}
+.drawer{position:absolute;top:0;bottom:0;left:0;width:min(430px,100%);background:var(--bg);padding:20px;overflow:auto;transform:translateX(-100%);transition:.25s}
+.drawer-backdrop.open .drawer{transform:translateX(0)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.close-btn{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:10px;padding:7px 11px}
+.cart-item{display:grid;grid-template-columns:45px 1fr auto;gap:9px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.cart-emoji{width:44px;height:44px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:23px}
+.cart-item strong{display:block;font-size:12px}
+.cart-item small{color:var(--muted);font-size:11px}
+.qty{display:flex;align-items:center;gap:8px;margin-top:5px}
+.qty button{border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--text);width:27px;height:27px}
+.remove{border:0;background:transparent;color:#c04b77}
+.cart-summary{position:sticky;bottom:-20px;background:var(--bg);padding:15px 0;border-top:1px solid var(--line);margin-top:20px}
+.modal-backdrop{display:grid;place-items:center;padding:15px}
+.modal{background:var(--bg);width:min(500px,100%);max-height:90vh;overflow:auto;border-radius:20px;padding:22px;transform:translateY(12px);transition:.25s}
+.modal-backdrop.open .modal{transform:translateY(0)}
+.modal p{font-size:13px;color:var(--muted)}
+.toast{position:fixed;bottom:85px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--text);color:var(--bg);border-radius:12px;padding:10px 15px;font-size:12px;z-index:200;transition:.25s;white-space:nowrap;max-width:90vw}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.mobile-bar{display:none}
+@media(max-width:850px){.navlinks{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr .55fr}.feature-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){
+  .nav{min-height:64px}.logo{font-size:16px}.nav-actions .contact-nav{display:none}
+  .hero{grid-template-columns:1fr;padding:23px 19px;margin-top:13px}.hero-art{min-height:110px}.hero-bottle{font-size:95px}.orbit{font-size:25px}
+  .hero h1{font-size:28px}.categories{grid-template-columns:repeat(2,1fr)}
+  .grid{gap:9px}.product-visual{height:125px}.product-visual .big{font-size:53px}
+  .card-body{padding:10px}.card h3{font-size:13px}.card-actions{flex-direction:column}
+  .card-actions .btn{width:100%}.feature-grid{grid-template-columns:1fr}
+  .section{padding-top:36px}
+  .mobile-bar{position:fixed;z-index:60;bottom:9px;left:10px;right:10px;display:flex;justify-content:space-around;gap:5px;padding:8px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 25px #0002}
+  .mobile-bar a,.mobile-bar button{flex:1;text-align:center;border:0;background:transparent;color:var(--text);font-size:11px;padding:4px}
+  .mobile-bar span{display:block;font-size:18px}
+  footer{padding-bottom:100px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="announcement">💗 برای اطلاع از قیمت روز و موجودی، از طریق ایتا یا تماس با ما در ارتباط باشید.</div>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">MND Beauty 💄<small>BEAUTY & SKINCARE PRODUCTS</small></a>
+    <nav class="navlinks">
+      <a href="#home">خانه</a><a href="#products">محصولات</a>
+      <a href="#benefits">خدمات</a><a href="#faq">سؤالات متداول</a><a href="#contact">تماس</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="حالت شب">🌙</button>
+      <button class="icon-btn" id="favoritesBtn" aria-label="علاقه‌مندی‌ها">♡</button>
+      <button class="icon-btn" id="cartBtn" aria-label="سبد خرید">🛍️<span class="count" id="cartCount">0</span></button>
+      <a class="btn contact-nav" href="tel:+989130147902">تماس</a>
+    </div>
+  </div>
+</header>
+
+<div class="floating" aria-hidden="true">
+  <span class="float-icon" style="--x:5%;--s:28px;--t:19s;--d:0s">💄</span>
+  <span class="float-icon" style="--x:19%;--s:25px;--t:23s;--d:5s">🌸</span>
+  <span class="float-icon" style="--x:37%;--s:31px;--t:21s;--d:9s">🧴</span>
+  <span class="float-icon" style="--x:58%;--s:27px;--t:24s;--d:3s">💋</span>
+  <span class="float-icon" style="--x:77%;--s:30px;--t:20s;--d:7s">🪞</span>
+  <span class="float-icon" style="--x:92%;--s:27px;--t:22s;--d:11s">💅</span>
+</div>
+
+<main>
+<section class="container hero" id="home">
+  <div>
+    <span class="pill">زیبایی با انتخاب آگاهانه ✨</span>
+    <h1>یک قدم نزدیک‌تر به روتین زیبایی تو</h1>
+    <p>محصولات آرایشی و مراقبت پوست و مو از MND Beauty. محصولت را پیدا کن، قیمت روز را بپرس و برای سفارش مستقیم با ما ارتباط بگیر.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#products">مشاهده محصولات ←</a>
+      <a class="btn secondary" href="https://eitaa.com/MND_beauty_and_care_products" target="_blank" rel="noopener">ورود به کانال ایتا</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <span class="orbit o1">🌸</span><span class="orbit o2">💋</span><span class="orbit o3">✨</span>
+    <div class="hero-bottle">🧴</div>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="section-head"><div><h2>دسته‌بندی محصولات</h2><p>برای دیدن محصولات هر گروه، دسته را انتخاب کن.</p></div></div>
+  <div class="categories">
+    <button class="category" data-pick="makeup"><span>💄</span><strong>آرایشی</strong></button>
+    <button class="category" data-pick="skin"><span>🫧</span><strong>مراقبت پوست</strong></button>
+    <button class="category" data-pick="hair"><span>🧖🏻‍♀️</span><strong>مراقبت مو</strong></button>
+    <button class="category" data-pick="other"><span>🌿</span><strong>سایر محصولات</strong></button>
+  </div>
+</section>
+
+<section class="container section" id="products">
+  <div class="section-head"><div><h2>محصولات فروشگاه</h2><p id="resultText">محصولات معرفی‌شده در کانال MND</p></div></div>
+  <div class="toolbar">
+    <input class="search" id="search" type="search" placeholder="🔎 نام محصول را جست‌وجو کن..." aria-label="جست‌وجوی محصول">
+    <select id="sort" aria-label="مرتب‌سازی">
+      <option value="default">ترتیب پیش‌فرض</option>
+      <option value="az">نام محصول: الف تا ی</option>
+    </select>
+  </div>
+  <div class="filters" id="filters">
+    <button class="filter active" data-category="all">همه</button>
+    <button class="filter" data-category="makeup">آرایشی</button>
+    <button class="filter" data-category="skin">پوست</button>
+    <button class="filter" data-category="hair">مو</button>
+    <button class="filter" data-category="other">سایر</button>
+  </div>
+  <div class="grid" id="productGrid"></div>
+  <div class="empty" id="empty">محصولی پیدا نشد. نام دیگری را امتحان کن.</div>
+  <p class="note">قیمت و موجودی باید پیش از سفارش تأیید شوند. این صفحه به‌طور خودکار به کانال ایتا متصل نیست.</p>
+</section>
+
+<section class="container section" id="benefits">
+  <div class="section-head"><div><h2>خرید راحت‌تر از MND</h2><p>اطلاعات روشن و ارتباط مستقیم با فروشگاه.</p></div></div>
+  <div class="feature-grid">
+    <article class="feature"><span class="emoji">📞</span><h3>سفارش تلفنی</h3><p>محصولات را به سبد اضافه کن و متن سفارش را برای تماس آماده کن.</p></article>
+    <article class="feature"><span class="emoji">📣</span><h3>کانال رسمی ایتا</h3><p>برای پیگیری معرفی محصولات و اطلاعات تازه، کانال فروشگاه را ببین.</p></article>
+    <article class="feature"><span class="emoji">💗</span><h3>علاقه‌مندی‌ها</h3><p>محصولات دلخواه را ذخیره کن تا در مراجعه بعدی راحت‌تر پیدایشان کنی.</p></article>
+  </div>
+</section>
+
+<section class="container section" id="faq">
+  <div class="section-head"><div><h2>سؤالات متداول</h2><p>چند نکته پیش از ثبت سفارش.</p></div></div>
+  <div class="faq">
+    <details><summary>چطور از قیمت محصول مطلع شوم؟</summary><p>روی «استعلام» بزن تا متن پرسش آماده شود، یا با فروشگاه تماس بگیر.</p></details>
+    <details><summary>آیا قیمت‌ها خودکار از ایتا به‌روزرسانی می‌شوند؟</summary><p>خیر. این سایت مستقل است و اتصال خودکار به کانال یا پنل مدیریت سرور ندارد. قیمت باید در اطلاعات سایت به‌روزرسانی شود.</p></details>
+    <details><summary>چطور سفارش را نهایی کنم؟</summary><p>محصولات را به سبد اضافه کن، متن سفارش را آماده و کپی کن، سپس برای هماهنگی با فروشگاه تماس بگیر.</p></details>
+    <details><summary>آیا ثبت سفارش به معنی پرداخت آنلاین است؟</summary><p>خیر. این سایت سفارش را آماده می‌کند اما درگاه پرداخت یا سامانه ارسال متصل ندارد.</p></details>
+  </div>
+</section>
+
+<section class="container section" id="contact">
+  <div class="contact-box">
+    <div style="font-size:43px">💌</div>
+    <h2>با MND در ارتباط باش</h2>
+    <p>برای قیمت روز، موجودی و هماهنگی سفارش از راه‌های زیر استفاده کن.</p>
+    <div class="socials">
+      <a class="btn" href="tel:+989130147902">📞 تماس: 09130147902</a>
+      <a class="btn secondary" href="https://eitaa.com/MND_beauty_and_care_products" target="_blank" rel="noopener">📣 کانال ایتا</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <a class="logo" href="#home">MND Beauty 💄</a>
+    <div class="footer-links"><a href="#products">محصولات</a><a href="#faq">راهنما</a><a href="#contact">تماس</a><a href="https://eitaa.com/MND_beauty_and_care_products" target="_blank" rel="noopener">ایتا</a></div>
+    <div>© <span id="year"></span> MND Beauty and Skincare Products</div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a href="#home"><span>⌂</span>خانه</a>
+  <a href="#products"><span>💄</span>محصولات</a>
+  <button id="mobileCart"><span>🛍️</span>سبد خرید <b id="mobileCount">0</b></button>
+  <a href="#contact"><span>☎️</span>تماس</a>
+</div>
+
+<div class="drawer-backdrop" id="cartBackdrop" aria-hidden="true">
+  <aside class="drawer" role="dialog" aria-modal="true" aria-label="سبد خرید">
+    <div class="drawer-head"><h2>سبد خرید 🛍️</h2><button class="close-btn" id="closeCart">بستن ✕</button></div>
+    <p class="note">قیمت نهایی را پیش از خرید از فروشگاه بپرس.</p>
+    <div id="cartItems"></div>
+    <div class="cart-summary">
+      <div style="display:flex;justify-content:space-between;margin-bottom:12px"><strong>جمع سفارش</strong><strong id="cartTotal">استعلام قیمت</strong></div>
+      <button class="btn full" id="prepareOrder">آماده‌سازی متن سفارش</button>
+      <button class="btn secondary full" id="callFromCart" style="margin-top:8px">تماس با فروشگاه</button>
+      <button class="btn soft full" id="clearCart" style="margin-top:8px">خالی کردن سبد</button>
+    </div>
+  </aside>
+</div>
+
+<div class="modal-backdrop" id="orderBackdrop" aria-hidden="true">
+  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+    <div class="drawer-head"><h3 id="orderTitle">متن سفارش شما</h3><button class="close-btn" id="closeOrder">بستن ✕</button></div>
+    <p>متن زیر را کپی کن و هنگام تماس به فروشگاه ارائه بده.</p>
+    <textarea id="orderText" rows="9" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text)" readonly></textarea>
+    <button class="btn full" id="copyOrder" style="margin-top:12px">کپی متن سفارش</button>
+    <a class="btn secondary full" href="tel:+989130147902" style="margin-top:8px">تماس برای نهایی‌کردن</a>
+  </section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite
